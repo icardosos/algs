@@ -42,5 +42,26 @@ namespace algs
 
             return pairs;
         }
+
+         static int countingValleys(int n, string s)
+        {
+            int valley = 0;
+            var path = s.ToCharArray();
+            int seaLevel = 0;
+
+            for (int x = 0; x < n; x++)
+            {
+                if (path[x] == 'D')
+                    seaLevel--;
+                else if (path[x] == 'U')
+                {
+                    seaLevel++;
+                    if (seaLevel == 0)
+                        valley++;
+                }
+            }
+
+            return valley;
+        }
     }
 }
