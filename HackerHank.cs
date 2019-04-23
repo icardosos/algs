@@ -4,7 +4,8 @@ namespace algs
 {
     public class HackHank
     {
-        static int sockMerchantN2(int n, int[] ar)        {
+        static int sockMerchantN2(int n, int[] ar)
+        {
             int count = 0;
             for (var i = 0; i < n - 1; i++)
             {
@@ -43,7 +44,7 @@ namespace algs
             return pairs;
         }
 
-         static int countingValleys(int n, string s)
+        static int countingValleys(int n, string s)
         {
             int valley = 0;
             var path = s.ToCharArray();
@@ -63,5 +64,19 @@ namespace algs
 
             return valley;
         }
+
+      static int jumpingOnClouds(int[] c) {
+           int jumps = 0;
+
+            for (int x = 0; x <= c.Length - 2; x++)
+            {
+                if (x != c.Length - 2 && c[x + 2] == 0)
+                    x++;
+
+                jumps++;
+            }
+            return jumps;
+    }
+
     }
 }
