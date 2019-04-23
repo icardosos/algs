@@ -1,10 +1,12 @@
+using System;
 using System.Collections.Generic;
 
 namespace algs
 {
-    public class HackHank
+    public static class HackHank
     {
-        static int sockMerchantN2(int n, int[] ar)        {
+        public static int sockMerchantN2(int n, int[] ar)
+        {
             int count = 0;
             for (var i = 0; i < n - 1; i++)
             {
@@ -23,8 +25,7 @@ namespace algs
             }
             return count;
         }
-
-        static int sockMerchantN(int n, int[] ar)
+        public static int sockMerchantN(int n, int[] ar)
         {
             var dic = new Dictionary<int, int>();
             for (var i = 0; i < n; i++)
@@ -42,8 +43,7 @@ namespace algs
 
             return pairs;
         }
-
-         static int countingValleys(int n, string s)
+        public static int countingValleys(int n, string s)
         {
             int valley = 0;
             var path = s.ToCharArray();
@@ -62,6 +62,33 @@ namespace algs
             }
 
             return valley;
+        }
+        public static long repeatedString(string s, long n)
+        {
+            var array = s.ToCharArray();
+            int countA = 0;
+            int countLeft = 0;
+            long total  = 0;
+
+            for (int x = 0; x < array.Length; x++)
+            {
+                if (array[x] == 'a')
+                    countA++;
+            }
+
+            long multiplier = n / array.Length;
+            total = multiplier * countA;
+
+            long left = n % array.Length;
+            for (int x = 0; x < left; x++)
+            {
+                if (array[x] == 'a')
+                    countLeft++;
+            }
+
+            total += countLeft;
+
+            return total;
         }
     }
 }
