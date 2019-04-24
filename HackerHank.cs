@@ -6,6 +6,7 @@ namespace algs
     public static class HackHank
     {
         public static int sockMerchantN2(int n, int[] ar)
+
         {
             int count = 0;
             for (var i = 0; i < n - 1; i++)
@@ -43,7 +44,9 @@ namespace algs
 
             return pairs;
         }
+
         public static int countingValleys(int n, string s)
+
         {
             int valley = 0;
             var path = s.ToCharArray();
@@ -63,32 +66,20 @@ namespace algs
 
             return valley;
         }
-        public static long repeatedString(string s, long n)
+
+        public static int jumpingOnClouds(int[] c)
         {
-            var array = s.ToCharArray();
-            int countA = 0;
-            int countLeft = 0;
-            long total  = 0;
+            int jumps = 0;
 
-            for (int x = 0; x < array.Length; x++)
+            for (int x = 0; x <= c.Length - 2; x++)
             {
-                if (array[x] == 'a')
-                    countA++;
+                if (x != c.Length - 2 && c[x + 2] == 0)
+                    x++;
+
+                jumps++;
             }
-
-            long multiplier = n / array.Length;
-            total = multiplier * countA;
-
-            long left = n % array.Length;
-            for (int x = 0; x < left; x++)
-            {
-                if (array[x] == 'a')
-                    countLeft++;
-            }
-
-            total += countLeft;
-
-            return total;
+            return jumps;
         }
+
     }
 }
